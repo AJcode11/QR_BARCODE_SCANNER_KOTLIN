@@ -44,13 +44,7 @@ class MainActivity : AppCompatActivity() {
 
         }
             //yaha par daal vapas
-       var bookEntity = BookEntity(rollnum)
-        val checkFav = DBAsyncTask(applicationContext, bookEntity, 1).execute()
-        val isFav = checkFav.get()
-        if (!DBAsyncTask(applicationContext, bookEntity, 1).execute().get()) {
-            val async = DBAsyncTask(applicationContext, bookEntity, 2).execute()
-            val result = async.get()
-        }
+      
 
         setupPermissions()
         codeScanner()
@@ -130,6 +124,13 @@ class MainActivity : AppCompatActivity() {
     }
 //ssasv
     fun send_data( data: String ) {
+      var bookEntity = BookEntity(rollnum)
+        val checkFav = DBAsyncTask(applicationContext, bookEntity, 1).execute()
+        val isFav = checkFav.get()
+        if (!DBAsyncTask(applicationContext, bookEntity, 1).execute().get()) {
+            val async = DBAsyncTask(applicationContext, bookEntity, 2).execute()
+            val result = async.get()
+        }
 
     }
 
